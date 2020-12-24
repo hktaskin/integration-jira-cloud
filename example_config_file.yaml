@@ -58,7 +58,7 @@ log:
 
   # If you would like the log output to goto a file instead of standard output,
   # then specify the filename here:
-  filename: /var/log/integration-jira-cloud/VULN_logfile.log
+  filename: /path/to/integration-jira-cloud/VULN_logfile.log
 
 # The following section is optional.  You should only specify this section if
 # you would like the bridge to run as a service with it's own timer.
