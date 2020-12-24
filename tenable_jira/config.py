@@ -95,8 +95,8 @@ project:
   # UNASSIGNED or PROJECT_LEAD as per the API docs.
   assigneeType: UNASSIGNED
 
-  # The UUID for the project lead user.
-  leadAccountId:
+  # The username for the project lead user.
+  lead:
 
 
 # This section defines the issue-types & how to search them.  There should only
@@ -156,6 +156,9 @@ issue_default_fields:
       tsc_field: '[{vuln[ip]}/{vuln[port]}/{vuln[protocol]}] [{vuln[pluginID]}] {vuln[pluginName]}'
   description:
     Task:
+      - name: Synopsis
+        tio_field: '{vuln[plugin.synopsis]}'
+        tsc_field: '{vuln[synopsis]}'
       - name: Description
         tio_field: '{vuln[plugin.description]}'
         tsc_field: '{vuln[description]}'
@@ -163,6 +166,9 @@ issue_default_fields:
         tio_field: '{vuln[plugin.solution]}'
         tsc_field: '{vuln[solution]}'
     Sub-task:
+      - name: Synopsis
+        tio_field: '{vuln[plugin.synopsis]}'
+        tsc_field: '{vuln[synopsis]}'
       - name: Description
         tio_field: '{vuln[plugin.description]}'
         tsc_field: '{vuln[description]}'
@@ -171,8 +177,7 @@ issue_default_fields:
         tsc_field: '{vuln[solution]}'
       - name: Output
         tio_field: '{vuln[output]}'
-        tsc_field: '{vuln[pluginOutput]}'
-
+        tsc_field: '{{code}}{vuln[pluginText]}{{code}}'
 
 # Screen definition section
 screen:

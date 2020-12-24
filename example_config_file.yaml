@@ -1,23 +1,51 @@
 tenable:
-  # Tenable.io or API Access Key
-  access_key:
+  # What platform should we be connecting to?
+  #  Must be either tenable.io and tenable.sc
+  platform: tenable.sc
 
-  # Tenable.io or API Secret Key
-  secret_key:
+  # The hostname for the Tenable.sc host
+  address: 127.0.0.1
+ 
+  # The port number on Tenable.sc to connect to
+  port: 443
+ 
+  # Tenable.sc Query to use as the basis for generating JIRA tickets.
+  query_id: 405
+  
+  # Tenable.io or Tenable.sc API Access Key
+  access_key: ...
+
+  # Tenable.io or Tenable.sc API Secret Key
+  secret_key: ...
 
 jira:
-  # The API Token to use to authenticate to the Jira application
-  api_token:
-
   # The User that will be authenticaing to the Jira application
-  api_username:
+  api_username: ...
 
-  # The address pointing to the Jira application.
-  address: your-domain.atlassian.net
+  # The API Password/Token to use to authenticate to the Jira application
+  api_token: ...
+
+  # The address pointing to the Jira application. (format; http[s]://IP-or-DOMAIN[:PORT])
+  address: http://127.0.0.1:8080
 
 project:
-  # The lead account id for the primary user for the project.
-  leadAccountId: 557058:071b0552-f7ed-4fe4-a718-891ea15592a0
+  # The project Key to use.
+  key: VULN
+
+  # The name of the project
+  name: Vulnerability Management
+
+  # The Jira project template id. Check your Jira Server config for the correct template key
+  projectTemplateKey: com.atlassian.jira-core-project-templates:jira-core-project-management
+
+  # The lead account username for the primary user for the project for Jira Server
+  lead: ...
+
+screen:
+  # What screens should we be managing? (Update accordingly to the project template you use)
+  name:
+    - Project Management Create Issue Screen
+    - Project Management Edit/View Issue Screen
 
 # The following log definitions are optional.  Only specify these if you want
 # to change the default logging behavior of only outputting warnings and errors
@@ -26,11 +54,11 @@ log:
   # What is the logging level desired?  Available levels are:
   #   debug, info, warn, error
   # The default level if unspecified is "warn"
-  level: warn
+  level: info
 
   # If you would like the log output to goto a file instead of standard output,
   # then specify the filename here:
-  filename: /path/to/logfile.log
+  filename: /var/log/integration-jira-cloud/VULN_logfile.log
 
 # The following section is optional.  You should only specify this section if
 # you would like the bridge to run as a service with it's own timer.
@@ -38,4 +66,6 @@ service:
   # How many hours should we wait between jobs?  Note setting this to a
   # non-zero number will result in imports past the initial import will use
   # time of the last completed import as the basis for last observed.
-  interval: 24
+  # set to 0 for one time run
+  interval: 0
+

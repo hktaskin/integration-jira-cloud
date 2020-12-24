@@ -8,8 +8,8 @@ class ScreenIterator(APIIterator):
             'startAt': self.limit * (self.num_pages - 1),
             'maxResults': self.limit
         }).json()
-        self.total = resp['total']
-        self.page = resp['values']
+        self.total = len(resp)
+        self.page = resp
 
 class ScreensAPI(APIEndpoint):
     def list(self, **kwargs):

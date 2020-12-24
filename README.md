@@ -1,4 +1,10 @@
-# Tenable for Jira Cloud
+# Tenable for Jira Server
+
+This repository is a fork of [tenable/integrations-jira-cloud](https://github.com/tenable/integration-jira-cloud) with slight modifications to make it work with Jira Server software.
+
+* Tested with Tenable.sc 5.16.0 and Jira Software Server 8.13.2.
+
+## Tenable for Jira Cloud
 
 This integration is designed to pull Tenable.io vulnerability data, then
 generate Jira Tasks and sub-tasks based on the vulnerabilities' current state.

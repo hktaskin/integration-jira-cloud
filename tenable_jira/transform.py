@@ -165,45 +165,20 @@ class Tio2Jira:
         # if the definition is a list, then we are dealing with a document
         # structure and should build the appropriate dict structure.
         if isinstance(fdef, list):
-            content = list()
+            content = ''
             for item in fdef:
                 # The heading is derrived from the name attribute
-                content.append({
-                    'type': 'heading',
-                    'attrs': {'level': 1},
-                    'content': [{
-                        'type': 'text',
-                        'text': item['name']
-                }]})
+                content += '*' + item['name'] + '*\r\n\r\n'
 
                 # The paragraph is derrived from the appropriate
                 # field parameter.  If the string formatting fails
                 # from a KeyError, then replace the output with
                 # an empty paragraph.
                 try:
-                    content.append({
-                        'type': 'paragraph',
-                        'content': [{
-                            'type': 'text',
-                            'text': trunc(
-                                item[fid].format(vuln=vuln),
-                                tconf.get('limit', 10000),
-                                tconf.get('suffix', '...')
-                            )
-                        }]
-                    })
+                    content += trunc(item[fid].format(vuln=vuln), tconf.get('limit', 10000), tconf.get('suffix', '...')) + '\r\n\r\n\r\n'
                 except KeyError:
-                    content.append({
-                        'type': 'paragraph',
-                        'content': [{
-                            'type': 'text',
-                            'text': 'No Output'
-                    }]})
-            return {
-                'version': 1,
-                'type': 'doc',
-                'content': content
-            }
+                    content += 'N/A'
+            return content
 
         # if the definition is a dictionary, then this is a simple single-field
         # response and we should simple return back the processed string.

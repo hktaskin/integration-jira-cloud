@@ -101,7 +101,7 @@ def cli(configfile, observed_since, setup_only=False, troubleshoot=False):
 
     # instantiate the Jira object
     jira = Jira(
-        'https://{}/rest/api/3'.format(config['jira']['address']),
+        '{}/rest/api/2'.format(config['jira']['address']),
         config['jira']['api_username'],
         config['jira']['api_token']
     )
@@ -216,6 +216,7 @@ def cli(configfile, observed_since, setup_only=False, troubleshoot=False):
                 logging.info(
                     'Initiating ingest with observed_since={}'.format(last_run))
                 ingest.ingest(last_run)
+        print('DONE')
     elif setup_only:
         # In setup-only mode, the ingest will not run, and instead a config file
         # will be generated that will have all of the JIRA identifiers baked in

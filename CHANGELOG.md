@@ -5,9 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.19]
+
+### Changed
+
+- Jira Cloud support changed to Jira Server Support. This fork supports only Jira Software Server instances.
+
+- "https://" prefix has been moved to the config file for Jira address parameter. This way both HTTP and HTTPS URLs can be configured.
+
+### Added
+
+- Synopsis section of Tenable plugin output has been added to the Jira issue description.
+
 ## [1.1.18]
 
-## Fixed
+### Fixed
 
 - Asset Metadata merging was missing tagging data after changes made to support #74/#80
 - Tenable Asset UUID now populated with agent UUID when using Tenable.sc

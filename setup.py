@@ -2,15 +2,15 @@ from setuptools import setup, find_packages
 import os
 
 long_description = '''
-Tenable -> Jira Cloud Bridge
+Tenable -> Jira Server Bridge
 For usage documentation, please refer to the github repository at
 https://github.com/tenable/integrations-jira-cloud
 '''
 
 setup(
-    name='tenable-jira-cloud',
-    version='1.1.18',
-    description='Tenable -> Jira Cloud Bridge',
+    name='tenable-jira-server',
+    version='1.1.19',
+    description='Tenable -> Jira Server Bridge',
     author='Tenable, Inc.',
     long_description=long_description,
     author_email='smcgrath@tenable.com',
