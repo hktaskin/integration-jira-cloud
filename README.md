@@ -4,6 +4,17 @@ This repository is a fork of [tenable/integrations-jira-cloud](https://github.co
 
 * Tested with Tenable.sc 5.16.0 and Jira Software Server 8.13.2.
 
+
+## Simple Setup Steps
+
+```
+python3 -m venv tsctojira
+cd tsctojira && source bin/activate
+pip install ./tenable-jira-server-integration
+```
+
+---
+
 ## Tenable for Jira Cloud
 
 This integration is designed to pull Tenable.io vulnerability data, then
