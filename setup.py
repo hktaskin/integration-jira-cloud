@@ -37,7 +37,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'tenable-jira=tenable_jira.cli:cli',
+            'tenable-jira-server=tenable_jira.cli:cli',
         ],
     },
 )
