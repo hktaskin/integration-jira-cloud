@@ -8,8 +8,9 @@ This repository is a fork of [tenable/integrations-jira-cloud](https://github.co
 ## Simple Setup Steps
 
 ```
+git clone [repository_url]
 python3 -m venv tsctojira
-cd tsctojira && source bin/activate
+source tsctojira/bin/activate
 pip install ./tenable-jira-server-integration
 ```
 
