@@ -177,7 +177,7 @@ issue_default_fields:
         tsc_field: '{vuln[solution]}'
       - name: Output
         tio_field: '{vuln[output]}'
-        tsc_field: '{{code}}{vuln[pluginText]}{{code}}'
+        tsc_field: '{{noformat}}{vuln[pluginText]}{{noformat}}'
 
 # Screen definition section
 screen:
@@ -190,6 +190,8 @@ screen:
   # the main tab that you'd see when opening the issue.  Any other tabs are
   # sub-tabs that must be clicked into.
   tabs:
+    default:
+      - Remote Jira Issue Key
     Vulnerability:
       - CVEs
       - Tenable VPR Score
@@ -472,4 +474,10 @@ fields:
       - Sub-task
     tio_field: plugin.vpr.score
     tsc_field: vprScore
+    
+  - jira_field: Remote Jira Issue Key
+    type: textfield
+    searcher: textsearcher
+    issue_type:
+      - Sub-task
 '''
